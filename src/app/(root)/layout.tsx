@@ -1,8 +1,8 @@
 import {
   ClerkProvider,
 } from "@clerk/nextjs";
-import "./globals.css";
-import Topbar from '../components/shared/TopBar'
+import "../globals.css";
+import Topbar from '../../components/shared/TopBar'
 import RightSidebar from "@/components/shared/RightSidebar";
 import LeftSidebar from "@/components/shared/LeftSidebar";
 import Bottombar from "@/components/shared/Bottombar";

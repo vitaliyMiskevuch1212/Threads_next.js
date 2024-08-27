@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { SignOutButton, SignedIn, useAuth } from "@clerk/nextjs";
 import { sidebarLinks } from "../../constants/index";
-import logout from '../../assets/logout.svg'
+import logout from '../../../public/logo.svg'
 
 
 
