@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as z from "zod";
@@ -18,8 +17,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
-import { ThreadValidation } from "../../lib/validations/thread";
-import { createThread } from "../../lib/actions/thread.actions";
+import { ThreadValidation } from "@/lib/validations/thread";
+import { createThread } from "@/lib/actions/thread.actions";
 
 interface Props {
   userId: string;
@@ -40,16 +39,23 @@ function PostThread({ userId }: Props) {
   });
 
   const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
-    await createThread({
-      text: values.thread,
-      author: userId,
-      communityId: organization ? organization.id : null,
-      path: pathname,
-    });
-
+    if (organization) {
+      console.log('Organization ID:', organization.id); // Перевірка ID організації
+      console.log('Form Values:', values); // Перевірка значень форми
+      await createThread({
+        text: values.thread,
+        author: userId,
+        communityId: organization.id,
+        path: pathname,
+      });
+    } else {
+      console.error('Organization is not available.');
+    }
+  
     router.push("/");
   };
-
+  
+ 
   return (
     <Form {...form}>
       <form

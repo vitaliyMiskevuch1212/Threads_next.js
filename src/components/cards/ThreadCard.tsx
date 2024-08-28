@@ -4,6 +4,7 @@ import Link from "next/link";
 import { formatDateString } from "@/lib/utils";
 import DeleteThread from "../forms/DeleteThread";
 
+
 interface Props {
   id: string;
   currentUserId: string;
@@ -39,6 +40,8 @@ function ThreadCard({
   comments,
   isComment,
 }: Props) {
+console.log('threadsCard:', community)
+ 
   return (
     <article
       className={`flex w-full flex-col rounded-xl ${
